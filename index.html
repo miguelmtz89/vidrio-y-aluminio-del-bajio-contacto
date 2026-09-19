@@ -425,7 +425,9 @@
             }
 
             // 🎯 Registrar conversión en Google Ads SOLO cuando el formulario se envía correctamente
-            gtag('event', 'conversion', {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              'event': 'conversion',
               'send_to': 'AW-18443204759/D7prCJa9sPMcEJfxs9pE',
               'value': 1.0,
               'currency': 'MXN'
