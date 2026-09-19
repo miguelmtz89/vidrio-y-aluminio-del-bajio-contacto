@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotiza tu Proyecto - Aluminio y Cristal</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18443204759"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18443204759');
+    </script>
     <style>
         * {
             margin: 0;
@@ -411,6 +419,13 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 return;
             }
+
+            // 🎯 Registrar conversión en Google Ads SOLO cuando el formulario se envía correctamente
+            gtag('event', 'conversion', {
+              'send_to': 'AW-18443204759/D7prCJa9sPMcEJfxs9pE',
+              'value': 1.0,
+              'currency': 'MXN'
+            });
 
             // Obtener valores de campos opcionales
             const cristal = document.getElementById('cristal').value.trim();
