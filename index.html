@@ -400,7 +400,7 @@
     </div>
 
     <script>
-        const WHATSAPP_NUMBER = "+524271613399"; // ⚠️ CAMBIAR POR TU NÚMERO COMPLETO (ej: +521234567890)
+        const WHATSAPP_NUMBER = "524271613399"; // Formato wa.me: código de país y número, sin signo +
 
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -476,6 +476,15 @@
 
             // Construir URL de WhatsApp
             const urlWhatsApp = `https://wa.me/${WHATSAPP_NUMBER}?text=${mensajeCodificado}`;
+
+            // PASO 4: Registrar solicitud de cotización en la capa de datos de GTM.
+            // No enviar nombre, correo, teléfono ni el mensaje a Analytics.
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'whatsapp_lead',
+                form_name: 'cotizacion_vidrio_aluminio',
+                lead_type: 'whatsapp'
+            });
 
             // Abrir WhatsApp
             window.open(urlWhatsApp, '_blank');
